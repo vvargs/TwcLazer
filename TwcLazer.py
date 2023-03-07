@@ -9,12 +9,12 @@ import datetime
 import threading
 import os
 from sys import exit
-import unix2base62
 
 import helpers.CLIhelper as CLIhelper
 import twitcasting.TwitcastAPI as TwitcastAPI
 import twitcasting.TwitcastWebsocket as TwitcastWebsocket
 import utils.ChatFormatter as ChatFormatter
+import utils.unix2base62 as unix2base62
 
 parser = argparse.ArgumentParser(add_help=False)
 parser.add_argument("-h", "--help", action="store_true")
