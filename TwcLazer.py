@@ -8,6 +8,7 @@ import asyncio
 import datetime
 import threading
 import os
+from sys import exit
 
 import helpers.CLIhelper as CLIhelper
 import twitcasting.TwitcastAPI as TwitcastAPI
