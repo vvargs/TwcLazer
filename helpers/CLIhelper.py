@@ -42,6 +42,23 @@ Downloading at the highest possible source may cause visible lagspikes in the vi
 You've Been Warned!
 """
 
+FILENAME_FORMATTING_INFO = """
+Filename Formatting Options
+
+By Default, the output file is formatted like so:
+-ff "%%Un-[%%Dy-%%Dm-%%Dd]-%%Id-%%Tn"
+<username>-[<year>_<month>_<day>]-<id>-<tn>
+
+However, you may override this if you so choose. The following is a list of formatting options you may use:
+
+  %Id - Movie ID        %Tn - Timename
+  %Tt - Title           %Hs - Hashtag (If Any)
+  %Tl - Telop           %Cn - Category Name
+  %Ci - Category ID     %Pm - Pin Message (If any)
+  %Dy - Year            %Dm - Month
+  %Dd - Day             %Un - Username
+"""
+
 CHAT_FORMATTING_INFO = f"""
 Chat Formatting Options
 
@@ -70,20 +87,5 @@ However, you may override this if you so choose. the following is a list of perc
   %Sg - Sender Grade          %Si - Sender ID
   %Sn - Sender Name           %Sp - Sender Profile Image
   %Ss - Sender Screen Name    %Et - Event Type
-"""
-
-FILENAME_FORMATTING_INFO = """
-Filename Formatting Options
-
-By Default, the output file is formatted like so:
-Twitcasting-<username>-<year>_<month>_<day>
-
-However, you may override this if you so choose. The following is a list of formatting options you may use:
-
-  %Tt - Title           %Hs - Hashtag (If Any)
-  %Tl - Telop           %Cn - Category Name
-  %Ci - Category ID     %Pm - Pin Message (If any)
-  %Dy - Year            %Dm - Month
-  %Dd - Day             %Un - Username
 """
 

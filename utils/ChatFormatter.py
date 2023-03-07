@@ -6,7 +6,7 @@ def strTranslate(original_text,dictionary_of_translations):
     out = original_text
     for keys,target in dictionary_of_translations.items():
         if keys in out:
-            out = out.replace(keys, target)
+            out = out.replace(keys, str(target))
         else:
             pass
 #        trans = str.maketrans(target,dictionary_of_translations[target])

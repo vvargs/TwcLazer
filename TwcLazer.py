@@ -14,12 +14,13 @@ import helpers.CLIhelper as CLIhelper
 import twitcasting.TwitcastAPI as TwitcastAPI
 import twitcasting.TwitcastWebsocket as TwitcastWebsocket
 import utils.ChatFormatter as ChatFormatter
+import utils.unix2base62 as unix2base62
 
 parser = argparse.ArgumentParser(add_help=False)
 parser.add_argument("-h", "--help", action="store_true")
 parser.add_argument("-u", "--username", type=str)
 parser.add_argument("-q", "--quality", type=str, default="low")
-parser.add_argument("-ff", "--fileformat", type=str, default="Twitcasting-%%Un-%%Dy_%%Dm_%%Dd")
+parser.add_argument("-ff", "--fileformat", type=str, default="%%Un-[%%Dy-%%Dm-%%Dd]-%%Id-%%Tn")
 parser.add_argument("-p", "--path", type=str, default=None)
 
 parser.add_argument("-nW", "--noWarn", action="store_true", default=False)
@@ -33,7 +34,7 @@ parser.add_argument("-gF", "--giftFormat", type=str, default="Gift: %%In | %%Mg 
 args = parser.parse_args()
 
 if args.help is True:
-    print(f"{CLIhelper.BANNER}\n{CLIhelper.OPTIONS}\n{CLIhelper.CHAT_FORMATTING_INFO}\n{CLIhelper.FILENAME_FORMATTING_INFO}")
+    print(f"{CLIhelper.BANNER}\n{CLIhelper.OPTIONS}\n{CLIhelper.FILENAME_FORMATTING_INFO}\n{CLIhelper.CHAT_FORMATTING_INFO}")
     exit()
 
 # Put input in a dict so we can create an API Object
@@ -65,14 +66,16 @@ TwAPI = TwitcastAPI.TwitcastingAPI(UserIn)
 # Now that we have the API object Created, we're good to go for making the fileformat object
 today = datetime.datetime.now()
 FileFormat_Translations = {
+    "%%Id" : TwAPI.CurrentStreamInfo.movie_id,
     "%%Tt" : TwAPI.CurrentStreamInfo.title,
     "%%Tl" : TwAPI.CurrentStreamInfo.telop,
     "%%Ci" : TwAPI.CurrentStreamInfo.category_id,
     "%%Cn" : TwAPI.CurrentStreamInfo.category_name,
-    "%%Dy" : str(today.year),
-    "%%Dm" : str(today.month),
-    "%%Dd" : str(today.day),
-    "%%Un" : UserIn["username"]
+    "%%Dy" : str(today.strftime('%Y')),
+    "%%Dm" : str(today.strftime('%m')),
+    "%%Dd" : str(today.strftime('%d')),
+    "%%Un" : UserIn["username"],
+    "%%Tn" : unix2base62.timename()
 }
 UserIn["fileformat"] = ChatFormatter.strTranslate(UserIn["fileformat"], FileFormat_Translations)
 
