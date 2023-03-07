@@ -34,7 +34,7 @@ parser.add_argument("-gF", "--giftFormat", type=str, default="Gift: %%In | %%Mg 
 args = parser.parse_args()
 
 if args.help is True:
-    print(f"{CLIhelper.BANNER}\n{CLIhelper.OPTIONS}\n{CLIhelper.CHAT_FORMATTING_INFO}\n{CLIhelper.FILENAME_FORMATTING_INFO}")
+    print(f"{CLIhelper.BANNER}\n{CLIhelper.OPTIONS}\n{CLIhelper.FILENAME_FORMATTING_INFO}\n{CLIhelper.CHAT_FORMATTING_INFO}")
     exit()
 
 # Put input in a dict so we can create an API Object
