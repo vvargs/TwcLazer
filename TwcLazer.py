@@ -71,9 +71,9 @@ FileFormat_Translations = {
     "%%Tl" : TwAPI.CurrentStreamInfo.telop,
     "%%Ci" : TwAPI.CurrentStreamInfo.category_id,
     "%%Cn" : TwAPI.CurrentStreamInfo.category_name,
-    "%%Dy" : str(today.year),
-    "%%Dm" : str(today.month),
-    "%%Dd" : str(today.day),
+    "%%Dy" : str(today.strftime('%Y')),
+    "%%Dm" : str(today.strftime('%m')),
+    "%%Dd" : str(today.strftime('%d')),
     "%%Un" : UserIn["username"],
     "%%Tn" : unix2base62.timename()
 }
