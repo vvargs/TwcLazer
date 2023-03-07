@@ -46,7 +46,7 @@ FILENAME_FORMATTING_INFO = """
 Filename Formatting Options
 
 By Default, the output file is formatted like so:
-%%Un-[%%Dy-%%Dm-%%Dd]-%%Id-%%Tn
+-ff "%%Un-[%%Dy-%%Dm-%%Dd]-%%Id-%%Tn"
 <username>-[<year>_<month>_<day>]-<id>-<tn>
 
 However, you may override this if you so choose. The following is a list of formatting options you may use:
